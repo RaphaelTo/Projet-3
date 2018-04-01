@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block body %}
+    <br><br><br><br>
+    <a href="{{ path('entreprise_ajout') }}"> Ajouter une entreprise </a>
+
+    <table>
+        <tr>
+            <th>Nom de l'entreprise</th>
+            <th>ville de l'entreprise</th>
+            <th>Code Postal de l'entrepris</th>
+            <th>Adresse de l'entreprise</th>
+            <th>Mail de l'entreprise</th>
+            <th>Telephone de l'entreprise</th>
+            <th>Activite de l'entreprise</th>
+            <th>Géolocalisation</th>
+        </tr>
+
+        {% for  base  in  entreprise   %}
+            <tr>
+                <td>{{ base.nomEntreprise }}</td>
+                <td>{{ base.villeEntreprise }}</td>
+                <td>{{ base.cpEntreprise }}</td>
+                <td>{{ base.adresseEntreprise }}</td>
+                <td>{{ base.mailEntreprise }}</td>
+                <td>{{ base.telEntreprise }}</td>
+                <td>{{ base.activiteEntreprise }}</td>
+                {% set map = base.nomEntreprise ~ " " ~ base.villeEntreprise ~ " " ~ base.cpEntreprise ~ " " ~ base.adresseEntreprise  %}
+                {% set replace = map|replace({" ":"+"}) %}
+                {% set url =  "https://www.google.fr/maps/dir/College+Les+Capucins,+Route+de+Voisenon,+77000+Melun/"~replace %}
+                <td><a href="{{ url }}"> Adresse </a></td>
+            </tr>
+        {% endfor %}
+
+    </table>
+
+
+{% endblock %}

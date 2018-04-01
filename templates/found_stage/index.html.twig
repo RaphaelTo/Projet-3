@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block body %}
+    <br><br><br><br>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button>Validez</button>
+    {{ form_end(form) }}
+
+<p>Si vous ne trouvez pas l'entreprise veuillez l'enregistrer:<a href="{{ path('entreprise_ajout') }}"> ICI</a></p>
+
+    <p>Si vous ne trouvez pas le tuteur veuillez l'enregistrer:<a href="{{ path('tuteur_ajout') }}"> ICI</a></p>
+{% endblock %}

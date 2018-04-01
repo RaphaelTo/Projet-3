@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tuteur{% endblock %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block body %}
+    <br><br><br><br>
+    <a href="{{ path('tuteur_ajout') }}">Ajouter un tuteur</a>
+    <table>
+        <tr>
+            <th>Nom du tuteur</th>
+            <th>Prenom du tuteur</th>
+            <th>Mail de tuteur</th>
+            <th>Téléphone du tuteur</th>
+            <th>Entreprise</th>
+
+        </tr>
+
+        {% for i in  tuteur   %}
+            <tr>
+                <td>{{ i.nomTuteur }}</td>
+                <td>{{ i.prenomTuteur }}</td>
+                <td>{{ i.mailTuteur }}</td>
+                <td>{{ i.telTuteur }}</td>
+                <td>{{ i.entreprise.nomEntreprise }}</td> {# je vais chercher le nom de l'entreprise qui est lié a entreprise grace entreprise #}
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

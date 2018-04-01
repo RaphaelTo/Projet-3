@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Projet{% endblock %}</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script src="{{ asset('/js/ie/html5shiv.js') }}"></script>
+        <link rel="stylesheet" href="{{  asset('/css/main.css') }} "/>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header" class="alt">
+            <div class="logo"><img src="/images/logo.svg" alt="" /></div>
+            <h1>Dipositif d'aide à la recherche</h1>
+            <h2>Stage de découverte des 3èmes</h2>
+        </header>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="{{ path('entreprise') }}"p>Entreprise</a></li>
+                <li><a href="{{ path('tuteur') }}">Tuteur</a></li>
+                <li><a href="{{ path('found_stage') }}">J'ai un stage!</a></li>
+                <li><a href="{{ path('stage') }}">Liste des stages</a></li>
+            </ul>
+        </nav>
+
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script src={{ asset('/js/jquery.min.js') }}></script>
+            <script src={{ asset('/js/jquery.scrollex.min.js') }}></script>
+            <script src={{ asset('/js/jquery.scrolly.min.js') }}></script>
+            <script src={{ asset('/js/skel.min.js') }}></script>
+            <script src={{ asset('/js/util.js') }}></script>
+            <script src={{ asset('/js/ie/respond.min.js') }}></script>
+            <script src={{ asset('/js/main.js') }}></script>
+        {% endblock %}
+    </body>
+</html>

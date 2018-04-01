@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stage {% endblock %}
+
+{% block body %}
+
+    <br><br><br><br>
+
+<table>
+    <tr>
+        <th>Stage n°</th>
+        <th>Eleve</th>
+        <th>Tuteur</th>
+        <th>Entreprise</th>
+        <th>Date d'ajout</th>
+    </tr>
+
+    {% for stage in stages  %}
+        <tr>
+            <td>{{ stage.id }}</td>
+            <td>{{ stage.Eleve.nom }} {{ stage.Eleve.prenom }}</td>
+            <td>{{ stage.Tuteur.nomTuteur }} {{ stage.Tuteur.prenomTuteur }}</td>
+            <td>{{ stage.Tuteur.entreprise.nomEntreprise }}</td>
+            <td>{{ stage.dateAjout }}</td>
+        {% endfor %}
+        </tr>
+</table>
+
+
+{% endblock %}
